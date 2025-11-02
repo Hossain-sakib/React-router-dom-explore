@@ -5,6 +5,6 @@ import Routes from "./Routes/Routes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="mx"><Routes></Routes></div>
+      <Routes></Routes>
   </StrictMode>
 );

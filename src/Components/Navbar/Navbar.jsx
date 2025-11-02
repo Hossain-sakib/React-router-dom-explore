@@ -1,15 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const NavItem = ({ to, label }) => {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `p-2 rounded-lg hover:bg-red-400 ${
+          isActive ? "bg-red-400 text-white" : "bg-transparent"
+        }`
+      }
+    >
+      {label}
+    </NavLink>
+  );
+};
 
 const Navbar = () => {
   return (
-    <div>
-      <h2>Navbar</h2>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/users">Users</Link>
+    <div className="flex flex-row items-center justify-center gap-4 p-8">
+      <h2 className="text-2xl">Navbar</h2>
+      <nav className="flex flex-row gap-6">
+        <NavItem to="/" label="Home" />
+        <NavItem to="/about" label="About" />
+        <NavItem to="/contact" label="Contact" />
+        <NavItem to="/posts" label="Posts" />
+        <NavItem to="/users" label="Users" />
       </nav>
     </div>
   );
